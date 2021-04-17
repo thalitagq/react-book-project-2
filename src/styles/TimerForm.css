@@ -1,0 +1,17 @@
+.card{
+  padding: 15px;
+}
+
+.buttonBlue{
+  background-color: #448AFF;
+  color: #fff
+}
+
+.buttonRed{
+  background-color: #FF745E;
+  color: #fff;
+}
+
+.inputField input{
+  padding: 15px 10px; 
+}

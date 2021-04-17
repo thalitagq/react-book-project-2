@@ -12,15 +12,17 @@ export class TimersDashboard extends React.Component {
         direction="column"
         justify="center"
         alignItems="center"
+        spacing={2}
         style={{padding: '2rem 1rem'}}
       >
-        <div className=''>
-          aaaaaaaaaa
+        <Grid item>
           <EditableTimerList />
+        </Grid>
+        <Grid item>
           <ToggleableTimerForm
             isOpen={true}
           />
-        </div>
+        </Grid>
       </Grid>
     );
   }

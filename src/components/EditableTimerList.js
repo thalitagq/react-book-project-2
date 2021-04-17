@@ -1,25 +1,30 @@
+import { Grid } from '@material-ui/core';
 import React from 'react'
-import { Timer } from './Timer';
-import { TimerForm } from './TimerForm';
+import { EditableTimer } from './EditableTimer';
 
 export class EditableTimerList extends React.Component {
   render() {
-    if (this.props.editFormOpen) {
-      return (
-        <TimerForm
-          title={this.props.title}
-          project={this.props.project}
-        />
-      );
-    } else {
-      return (
-        <Timer
-          title={this.props.title}
-          project={this.props.project}
-          elapsed={this.props.elapsed}
-          runningSince={this.props.runningSince}
-        />
-      );
-    }  
-  }
+    return (
+      <Grid container direction="column" spacing={2} id='timers'>
+        <Grid item>
+          <EditableTimer
+            title='Learn React'
+            project='Web Domination'
+            elapsed='8986300'
+            runningSince={null}
+            editFormOpen={false}
+          />
+        </Grid>
+        <Grid>
+          <EditableTimer
+            title='Learn extreme ironing'
+            project='World Domination'
+            elapsed='3890985'
+            runningSince={null}
+            editFormOpen={true}
+          />
+        </Grid>          
+      </Grid>
+    )
+  }  
 }

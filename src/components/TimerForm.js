@@ -1,31 +1,30 @@
+import { Button, ButtonGroup, Card, Grid, TextField } from '@material-ui/core';
 import React from 'react'
+import { StylesProvider } from '@material-ui/core/styles';
+import '../styles/TimerForm.css'
 
 export class TimerForm extends React.Component {
   render() {
     const submitText = this.props.title ? 'Update' : 'Create';
     return (
-      <div className='ui centered card'>
-        <div className='content'>
-          <div className='ui form'>
-            <div className='field'>
-              <label>Title</label>
-              <input type='text' defaultValue={this.props.title} />
-            </div>
-            <div className='field'>
-              <label>Project</label>
-              <input type='text' defaultValue={this.props.project} />
-            </div>
-            <div className='ui two bottom attached buttons'>
-              <button className='ui basic blue button'>
-                {submitText}
-              </button>
-              <button className='ui basic red button'>
-                Cancel
-              </button>
-            </div>
-          </div>
-        </div>
-      </div>
+      <StylesProvider injectFirst>
+        <Card className='card'>
+          <Grid container direction='column' spacing={2} className='' noValidate autoComplete="off">
+            <Grid item>
+              <TextField label="Title" variant="outlined" className='inputField' defaultValue={this.props.title}/>
+            </Grid>
+            <Grid item>
+              <TextField label="Project" variant="outlined" className='inputField' defaultValue={this.props.project}/>
+            </Grid>
+            <Grid item className=''>
+              <ButtonGroup disableElevation variant="contained" fullWidth>
+                <Button className='buttonBlue' fullWidth>{submitText}</Button>
+                <Button className='buttonRed' fullWidth>Cancel</Button>
+              </ButtonGroup>
+            </Grid>
+          </Grid>
+        </Card>
+      </StylesProvider>
     );
   }
 }
