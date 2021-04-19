@@ -2,28 +2,20 @@ import React from 'react'
 import { Grid } from "@material-ui/core";
 import { EditableTimerList } from './EditableTimerList';
 import { ToggleableTimerForm } from './ToggleableTimerForm';
+import '../styles/TimerForm.css'
 
 
 export class TimersDashboard extends React.Component {
   render() {
     return (
-      <Grid 
-        container
-        direction="column"
-        justify="center"
-        alignItems="center"
-        spacing={2}
-        style={{padding: '2rem 1rem'}}
-      >
-        <Grid item>
+      <div className="dashboard">
+        <div className="dashboardCol">
           <EditableTimerList />
-        </Grid>
-        <Grid item>
-          <ToggleableTimerForm
-            isOpen={true}
-          />
-        </Grid>
-      </Grid>
+        </div>
+        <div className="dashboardCol">
+          <ToggleableTimerForm isOpen={true}/>
+        </div>
+      </div>
     );
   }
 }

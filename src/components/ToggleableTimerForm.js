@@ -1,3 +1,4 @@
+import { Fab, Icon } from '@material-ui/core';
 import React from 'react'
 import { TimerForm } from './TimerForm';
 
@@ -9,10 +10,10 @@ export class ToggleableTimerForm extends React.Component {
       );
     } else {
       return (
-        <div className='ui basic content center aligned segment'>
-          <button className='ui basic button icon'>
-            <i className='plus icon' />
-          </button>
+        <div style={{display: 'flex', justifyContent:'center'}}>
+          <Fab color="primary" aria-label="add" style={{ backgroundColor: "#8BB327"}}>
+            <Icon>add</Icon>
+          </Fab>
         </div>
       );
     }  

@@ -1,8 +1,11 @@
+import { StylesProvider } from '@material-ui/styles';
 import { TimersDashboard } from './components/TimersDashboard';
 
 function App() {
   return (
-    <TimersDashboard/>
+    < StylesProvider injectFirst >
+      <TimersDashboard/>
+    </StylesProvider>
   );
 }
 

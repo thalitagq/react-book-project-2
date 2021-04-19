@@ -15,7 +15,7 @@ export class EditableTimerList extends React.Component {
             editFormOpen={false}
           />
         </Grid>
-        <Grid>
+        <Grid item>
           <EditableTimer
             title='Learn extreme ironing'
             project='World Domination'

@@ -1,41 +1,43 @@
 import React from 'react'
 import helpers from '../helpers'
-import { StylesProvider } from '@material-ui/core/styles';
-import { Card } from '@material-ui/core';
+import { Card, Button,Icon, Grid} from '@material-ui/core';
 
 export class Timer extends React.Component {
   render() {
     const elapsedString = helpers.renderElapsedString(this.props.elapsed);
     return (
-      <StylesProvider>
-
-        <Card className='ui centered card'>
-          <div className='content'>
-            <div className='header'>
+      <Card className='ui centered card'>
+        <Grid 
+          container 
+          spacing={2} 
+          direction="column"
+        >
+          <Grid item >
+            <h3 className="timerTittle">
               {this.props.title}
-            </div>
-            <div className='meta'>
+            </h3>
+          </Grid>
+          <Grid item>
+            <h4 className="timerSubtittle">
               {this.props.project}
-            </div>
-            <div className='center aligned description'>
-              <h2>
-                {elapsedString}
-              </h2>
-            </div>
-            <div className='extra content'>
-              <span className='right floated edit icon'>
-                <i className='edit icon' />
-              </span>
-              <span className='right floated trash icon'>
-                <i className='trash icon' />
-              </span>
-            </div>
-          </div>
-          <div className='ui bottom attached blue basic button'>
-            Start
-          </div>
-        </Card>
-      </StylesProvider>
+            </h4>
+          </Grid>
+          <Grid item>
+            <h1 className='timerText'>
+              {elapsedString}
+            </h1>
+          </Grid>
+          <Grid item style={{marginLeft: 'auto'}}>
+            <Icon className="timerIcon">delete</Icon>
+            <Icon className="timerIcon">edit</Icon>
+          </Grid>
+          <Grid>
+            <Button className='buttonBlue' fullWidth>
+              Start
+            </Button>
+          </Grid>
+        </Grid>
+      </Card>
     );
   }
 }
