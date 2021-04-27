@@ -4,26 +4,23 @@ import { EditableTimer } from './EditableTimer';
 
 export class EditableTimerList extends React.Component {
   render() {
+    
+    const timers = this.props.timers.map((timer) => (
+      <EditableTimer
+        key={timer.id}
+        id={timer.id}
+        title={timer.title}
+        project={timer.project}
+        elapsed={timer.elapsed}
+        runningSince={timer.runningSince}
+      />
+    ));
+
     return (
-      <Grid container direction="column" spacing={2} id='timers'>
+      <Grid container direction="column" id='timers'>
         <Grid item>
-          <EditableTimer
-            title='Learn React'
-            project='Web Domination'
-            elapsed='8986300'
-            runningSince={null}
-            editFormOpen={false}
-          />
+          {timers}
         </Grid>
-        <Grid item>
-          <EditableTimer
-            title='Learn extreme ironing'
-            project='World Domination'
-            elapsed='3890985'
-            runningSince={null}
-            editFormOpen={true}
-          />
-        </Grid>          
       </Grid>
     )
   }  

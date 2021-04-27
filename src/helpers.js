@@ -38,9 +38,11 @@ function pad(numberString, size) {
   return padded;
 }
 
-export default {
+const helpers = {
   millisecondsToHuman: millisecondsToHuman,
   newTimer: newTimer,
   findById: findById,
   renderElapsedString: renderElapsedString
 };
+
+export default helpers;

@@ -6,7 +6,7 @@ export class Timer extends React.Component {
   render() {
     const elapsedString = helpers.renderElapsedString(this.props.elapsed);
     return (
-      <Card className='ui centered card'>
+      <Card className='card'>
         <Grid 
           container 
           spacing={2} 
