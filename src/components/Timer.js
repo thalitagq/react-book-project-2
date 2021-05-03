@@ -1,6 +1,6 @@
 import React from 'react'
 import helpers from '../helpers'
-import { Card, Button,Icon, Grid} from '@material-ui/core';
+import { Card, Button,Icon, Grid, IconButton} from '@material-ui/core';
 
 export class Timer extends React.Component {
   render() {
@@ -28,8 +28,16 @@ export class Timer extends React.Component {
             </h1>
           </Grid>
           <Grid item style={{marginLeft: 'auto'}}>
-            <Icon className="timerIcon">delete</Icon>
-            <Icon className="timerIcon">edit</Icon>
+            <IconButton aria-label="deletar" size="small">
+              <Icon className="timerIcon">delete</Icon>
+            </IconButton>
+            <IconButton 
+              aria-label="editar" 
+              size="small" 
+              onClick={this.props.onEditClick}
+              >
+              <Icon className="timerIcon">edit</Icon>
+            </IconButton>
           </Grid>
           <Grid>
             <Button className='buttonBlue' fullWidth>

@@ -37,7 +37,26 @@ export class TimersDashboard extends React.Component {
       timers: this.state.timers.concat(t),
     });
   };
-  
+
+  handleEditFormSubmit = (attrs) => {
+    this.updateTimer(attrs);
+  };
+
+  updateTimer = (attrs) => {
+    this.setState({
+      timers: this.state.timers.map((timer) => {
+        if (timer.id === attrs.id) {
+          return Object.assign({}, timer, {
+            title: attrs.title,
+            project: attrs.project,
+          });
+        } else {
+          return timer;
+        }
+      }),
+    });
+  };
+
   render() {
     return (
       <div className="dashboard">
@@ -45,7 +64,10 @@ export class TimersDashboard extends React.Component {
           <h1>Timers</h1>
         </div>
         <div className="dashboardCol">
-          <EditableTimerList timers={this.state.timers}/>
+          <EditableTimerList 
+            timers={this.state.timers}
+            onFormSubmit={this.handleEditFormSubmit}
+          />
         </div>
         <div className="dashboardCol">
           <ToggleableTimerForm 
