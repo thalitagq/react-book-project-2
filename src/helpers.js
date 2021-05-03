@@ -1,6 +1,8 @@
+import { v4 as uuid } from 'uuid';
 
 function newTimer(attrs = {}) {
   return {
+    id: uuid(),
     title: attrs.title || 'Timer',
     project: attrs.project || 'Project',
     elapsed: 0
